@@ -1,13 +1,19 @@
 package stepdefinations;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class FlightSearchStepDefi {
 		
+	WebDriver driver;
 	@Given("I am on flight booking page")
 	public void i_am_on_flight_booking_page() {
+		driver = new ChromeDriver();
+		driver.get("https://www.google.com");
 		System.out.println("I am on flight booking page");
 	}
 	
@@ -24,6 +30,7 @@ public class FlightSearchStepDefi {
 	@Then("I should see available flights")
 	public void i_should_see_available_flights() {
 		System.out.println("I should see available flights");
+		driver.close();
 	}
 
 }
